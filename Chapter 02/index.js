@@ -112,4 +112,26 @@ console.log('b ->', JSON.stringify(b, null, 2))
  * ******************
  * Module definition patterns
  * ******************
+ * The main concern with using modules, especially when defining APIs, is 
+ * balancing the private and public functionality: maximizing privacy, and
+ * extensibility and code reuse.
+ * Naming exports is a basic method of exposing a public API.
+ * A popular module definition pattern is one known as the 'substack pattern':
+ * it involves setting the module.exports of a module to a single function,
+ * and optionally extending it by adding another function under the same 
+ * namespace, ex module.exports.functionB. This abides by the 
+ * Single-Responsibility Principle (SRP) by having a module have a single
+ * functionality it is responsible for.
+ * Another pattern would be a module that exports a class, allowing the
+ * constructor to be used wherever the module is required.
+ * A single instance of a class can be exported as well, allowing it to
+ * be required by many js files at once. This, however, does not preclude
+ * the possibility of making new instances by simply using the instances
+ * .constructor
+ * A danger is present in any module, that being its ability to modify 
+ * other modules or objects in the global scope, (Monkey Patching). Though
+ * this practice can be useful for debugging, it is bad practice. 
+ * ******************
+ * ESM: ECMAScript modules
+ * ******************
  */
