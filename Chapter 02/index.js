@@ -134,4 +134,11 @@ console.log('b ->', JSON.stringify(b, null, 2))
  * ******************
  * ESM: ECMAScript modules
  * ******************
+ * ECMAScript 2015 added an official module system, ES Modules (ESM), which
+ * retained some aspects of previous systems, while making the syntax simple,
+ * compact, and easy to understand.
+ * The main difference is that, unlike previous JS Module systems, ESM uses
+ * static modules, meaning they cannot be changed during runtime nor can they
+ * be controlled by flow statements, allowing easier elimination of dead 
+ * code. 
  */
