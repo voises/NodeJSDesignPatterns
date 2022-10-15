@@ -140,5 +140,27 @@ console.log('b ->', JSON.stringify(b, null, 2))
  * The main difference is that, unlike previous JS Module systems, ESM uses
  * static modules, meaning they cannot be changed during runtime nor can they
  * be controlled by flow statements, allowing easier elimination of dead 
- * code. 
+ * code.
+ * Node.js presupposes all modules to be written using CommonJS syntax, so
+ * special care must be had when writing in ESM syntax, namely either 
+ * changing the file extension to .mjs or having a .json file with "type" 
+ * set to "module"
+ * Exports and imports are handled in a slightly different way. In ESM,
+ * everything is private except that which is explicitly exported using the
+ * "export" keyword, as in "export function a(){...}".
+ * Imports use three keywords: "import", to initiate an import; "as", to
+ * (optionally) name the imported thing; and "from", to specify the module.
+ * For example, "import {a as b} from './function.js'" (* to import all).
+ * Default exports and imports are handled as follows: when using export, 
+ * the keyword "default" is used immedidately after, making whatever follows
+ * the default export. This means it can be imported and renamed without
+ * the use of "as." For example: 
+ * "export default function a(){}"
+ * "import b from './functions.js'"
+ * Both named and default exports can be imported at the same time in the
+ * following manner:
+ * "import defaultF, { namedF } from './functions.js'"
+ * Though sometimes convenient, and used by Node.js and React, it is 
+ * considered good practice to use only named exports, since it can make 
+ * dead code elimination easier. 
  */
